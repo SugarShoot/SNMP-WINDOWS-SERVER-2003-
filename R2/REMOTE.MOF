@@ -1,0 +1,60 @@
+#pragma namespace("\\\\.\\Root\\SFUAdmin")
+#pragma autorecover
+
+qualifier dynamic:ToInstance;
+qualifier ProviderClsid:ToInstance;
+qualifier ClassContext:ToInstance;
+qualifier propertycontext:ToInstance;
+
+[
+dynamic,
+Provider("RegProv"),
+ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Identity Management for UNIX\\AppsInstalled")
+] 
+class SFU_Remote {
+  [key]  STRING KeyName;
+  [read, write,propertycontext("Machine")]                  String  Machine;
+  [read, write,propertycontext("InstallPath")]                  String  Path;
+  //value maps could be used here
+};
+
+instance of SFU_Remote
+{
+KeyName = "Common Files";
+Machine = "localhost";
+};
+
+[
+dynamic,
+Provider("RegProv"),
+ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT")
+]
+class SFU_Windir {
+  [key]  STRING KeyName;
+  [read, write,propertycontext("SystemRoot")]                  String  windir;
+  [read, write,propertycontext("Default")]                  String  default;
+};
+
+instance of SFU_Windir
+{
+KeyName = "CurrentVersion";
+Default ="";
+};
+[
+dynamic,
+Provider("RegProv"),
+ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Identity Management for UNIX\\AppsInstalled")
+] 
+class SFU_Component {
+  [key]  STRING KeyName;
+  [read, write,propertycontext("Component")]                  String  Component;
+  [read, write,propertycontext("TabNum")]                  UINT32  TabNum;
+  //value maps could be used here
+};
+
+instance of SFU_Component
+{
+KeyName = "Common Files";
+Component = "About";
+TabNum = 0;
+};

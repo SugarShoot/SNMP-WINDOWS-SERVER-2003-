@@ -1,0 +1,64 @@
+#pragma namespace("\\\\.\\Root\\SFUAdmin")
+#pragma autorecover
+
+qualifier dynamic:ToInstance;
+qualifier ProviderClsid:ToInstance;
+qualifier ClassContext:ToInstance;
+qualifier propertycontext:ToInstance;
+
+[
+dynamic,
+Provider("RegProv"),
+ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\PswdSync\\Domains")
+] 
+class Psync_Domains {
+  [key]  STRING KeyName;
+  [read, write,propertycontext("Hosts")]                String Hosts[];
+  [read, write,propertycontext("EncryptionKey")]        String EncryptionKey;
+  [read, write,propertycontext("Logging")]              UInt32 Logging;
+  [read, write,propertycontext("Max Retries")]          UInt32 MaxRetries;
+  [read, write,propertycontext("Propagate Method")]     UInt32 PropagateMethod;
+  [read, write,propertycontext("PropAllowGroup")]       String PropAllowGroup;
+  [read, write,propertycontext("PropDenyGroup")]        String PropDenyGroup;
+  [read, write,propertycontext("Port Number")]          UInt32 PortNumber;
+  [read, write,propertycontext("SyncDirection")]          UInt32 SyncDirection;
+  [read, write,propertycontext("Update Retry Interval")]  UInt32 UpdateRetryInterval;
+  //value maps could be used here
+};
+
+[
+dynamic,
+Provider("RegProv"),
+ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft")
+]
+class Psync_Global {
+  [key]  STRING KeyName;
+  //value maps could be used here
+  [read, write,propertycontext("DaemonPortNumber")]     UInt32 DaemonPortNumber;
+  [read, write,propertycontext("DaemonEncryptionKey")]  String DaemonEncryptionKey;
+  [read, write,propertycontext("EncryptionKey")]        String EncryptionKey;
+  [read, write,propertycontext("Logging")]              UInt32 Logging;
+  [read, write,propertycontext("Max Retries")]          UInt32 MaxRetries;
+  [read, write,propertycontext("Port Number")]          UInt32 PortNumber;
+  [read, write,propertycontext("SyncDirection")]        UInt32 SyncDirection;
+  [read, write,propertycontext("Update Retry Interval")]  UInt32 UpdateRetryInterval;
+  [read, write,propertycontext("SNISPasswordSyncEnable")]  UInt32 SNISPasswordSyncEnable;
+};
+
+[
+dynamic,
+Provider("RegProv"),
+ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\PswdSync")
+] 
+class Psync_NotifyChange {
+  [key]  STRING KeyName;
+  [read, write,propertycontext("")]					UInt32 ReadConfig;
+};
+
+instance of Psync_NotifyChange
+{
+KeyName = "ReadConfig";
+ReadConfig = 0;
+};
+
+

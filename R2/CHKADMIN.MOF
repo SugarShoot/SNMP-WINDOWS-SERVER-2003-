@@ -1,0 +1,24 @@
+#pragma namespace("\\\\.\\Root\\SFUAdmin")
+#pragma autorecover
+
+qualifier dynamic:ToInstance;
+qualifier ProviderClsid:ToInstance;
+qualifier ClassContext:ToInstance;
+qualifier propertycontext:ToInstance;
+
+[
+dynamic,
+Provider("RegProv"),
+ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft")
+] 
+class SFU_Dummy{
+  [key]  STRING KeyName;
+  [read, write,propertycontext("Defaults")]					String Dummy;
+  //value maps could be used here
+};
+
+instance of  SFU_Dummy
+{
+KeyName = "Identity Management for UNIX";
+Dummy = 0;
+};

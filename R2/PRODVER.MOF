@@ -1,0 +1,25 @@
+#pragma namespace("\\\\.\\Root\\SFUAdmin")
+#pragma autorecover
+
+qualifier dynamic:ToInstance;
+qualifier ProviderClsid:ToInstance;
+qualifier ClassContext:ToInstance;
+qualifier propertycontext:ToInstance;
+
+[
+dynamic,
+Provider("RegProv"),
+ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT")
+] 
+class ProductVer{
+  [key]  STRING KeyName;
+  [read, write,propertycontext("SoftwareType")]					String SoftwareType;
+  [read, write,propertycontext("CurrentVersion")]					String OsVersion;
+  //value maps could be used here
+};
+
+instance of ProductVer 
+{
+KeyName = "CurrentVersion";
+SoftwareType="System";
+};

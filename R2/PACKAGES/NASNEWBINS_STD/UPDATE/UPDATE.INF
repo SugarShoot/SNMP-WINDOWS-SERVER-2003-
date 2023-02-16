@@ -1,0 +1,601 @@
+[Version]
+
+    Signature = "$Windows NT$"
+    LanguageType = %LangTypeValue%
+    NtBuildToUpdate = 3790
+    NtMajorVersionToUpdate = 5
+    NtMinorVersionToUpdate = 2
+    MaxNtBuildToUpdate = 3790
+    MaxNtMajorVersionToUpdate = 5
+    MaxNtMinorVersionToUpdate = 2
+    MinNtServicePackVersion=256     
+    MaxNtServicePackVersion=2560     
+    ThisServicePackVersion =0       
+    CatalogFile = %SP_SHORT_TITLE%.cat
+MachineType=64
+    CheckNonPEFileVersion = 1
+DriverVer=10/01/2002,5.2.3790.2075
+    
+[NonPEFiles.Inclusions]
+ amd64\ocwss.inf				
+
+
+  amd64\PMCSnap.inf
+
+
+  amd64\netfx20.inf
+
+
+  amd64\srm.inf				
+
+
+  amd64\cfscommonuifx.inf
+
+
+  amd64\sanmgmt.inf			
+
+
+  amd64\msnfs.inf
+  amd64\mapsvc.inf
+  amd64\nfsadminui.inf
+  amd64\nfsauth.inf
+  amd64\nfsclnt.inf
+  amd64\nfssvc.inf
+  amd64\portmap.inf
+  amd64\rpcxdr.inf
+
+
+
+  amd64\clfs.inf
+
+
+  amd64\uidmsnis.inf
+  amd64\uidmpsnc.inf
+  amd64\uidmadmn.inf
+  amd64\uidmmain.inf
+
+
+
+  amd64\Interix.inf
+
+
+  amd64\dfsr.inf				
+
+
+  amd64\hwmgmt.inf
+
+
+  amd64\dfsfrsui.inf			
+  amd64\dfsrhelper.inf
+  amd64\dfsext.inf
+
+
+
+
+
+
+
+
+
+
+
+  amd64\fsrcommon.inf
+
+  amd64\fsrnas.inf			
+
+
+
+
+  amd64\adservoc.inf
+
+
+  amd64\sis.inf				
+
+[ProductCatalogsToInstall]
+
+    %SP_SHORT_TITLE%.cat, update\%SP_SHORT_TITLE%.cat
+
+
+[ProductInstall.CopyFilesAlways]
+
+    CopyFiles=Setup.Files
+    CopyFiles=Inf.Files
+    CopyFiles=CysExt.Files
+    CopyFiles=Help.Files
+    CopyFiles=MiscBins.Files
+
+[ProductInstall.GlobalRegistryChanges.Install]
+    AddReg=Common.AddReg
+
+    AddReg=PrintSvr.AddReg
+    AddReg=FileSvr.AddReg
+
+    AddReg=NAS.AddReg				
+
+[ProductInstall.GlobalRegistryChanges.ReInstall]
+    AddReg=Common.AddReg
+
+    AddReg=PrintSvr.AddReg
+    AddReg=FileSvr.AddReg
+
+    AddReg=NAS.AddReg				
+
+
+
+[ProductInstall.ExtendedConditional]
+    ConditionInstall = SCWCondInstall
+
+[SCWCondInstall]
+Condition = SingleOp , SCWCondition
+ConditionalOperations = SCWInstall
+
+[SCWCondition]
+EqualOp=CheckReg, HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\Oc Manager\Subcomponents, SCW, 0x00010001,"==",1
+
+[SCWInstall]
+FileOperation = SCW.FileOp
+
+[ExtendedConditional.Declare]
+    DeclareSection = Declare.SCWFiles.Files
+
+[SCW.FileOp]
+CopyFiles           = SCWFiles.Files
+
+[Declare.SCWFiles.Files]
+   InstallSection=SCWFiles.Files
+   OperationType=CONDITIONAL_FILE
+   Flags=SP_COPY_FORCE_NEWER
+
+[SourceDisksFiles]
+    amd64\r2.xml      =1
+    amd64\r2loc.xml   =1
+
+
+[DestinationDirs]
+SCWFiles.Files   = 10,\security\msscw\kbs       
+
+[SCWFiles.Files]
+    r2.xml, amd64\r2.xml
+    r2loc.xml, amd64\r2loc.xml
+
+
+
+
+[DestinationDirs]
+
+    Setup.Files=11,\Setup  
+    Inf.Files=17           
+    CysExt.Files=11        
+    Help.Files=18          
+    MiscBins.Files=11      
+
+
+[Setup.Files]
+
+
+    ocwss.dll, amd64\ocwss.dll		
+
+
+    netfxocm20.dll, amd64\netfxocm20.dll
+
+
+    nfsocm.dll, amd64\nfsocm.dll
+
+
+    suaidmog.dll, amd64\suaidmog.dll
+
+
+    wsocgen.dll, amd64\wsocgen.dll
+
+
+
+
+
+
+
+
+
+
+[Inf.files]
+
+
+    ocwss.inf, amd64\ocwss.inf		
+
+
+    PMCSnap.inf, amd64\PMCSnap.inf
+
+
+    netfx20.inf, amd64\netfx20.inf
+
+
+    srm.inf, amd64\srm.inf		
+
+
+    cfscommonuifx.inf, amd64\cfscommonuifx.inf
+
+
+    sanmgmt.inf, amd64\sanmgmt.inf	
+
+
+    msnfs.inf, amd64\msnfs.inf
+    mapsvc.inf, amd64\mapsvc.inf
+    nfsadminui.inf, amd64\nfsadminui.inf
+    nfsauth.inf, amd64\nfsauth.inf
+    nfsclnt.inf, amd64\nfsclnt.inf
+    nfssvc.inf, amd64\nfssvc.inf
+    portmap.inf, amd64\portmap.inf
+    rpcxdr.inf, amd64\rpcxdr.inf
+
+
+
+    clfs.inf, amd64\clfs.inf
+
+
+    uidmsnis.inf, amd64\uidmsnis.inf
+    uidmpsnc.inf, amd64\uidmpsnc.inf
+    uidmadmn.inf, amd64\uidmadmn.inf
+    uidmmain.inf, amd64\uidmmain.inf
+
+
+
+    Interix.inf, amd64\Interix.inf
+
+
+    dfsr.inf, amd64\dfsr.inf		
+
+
+    hwmgmt.inf, amd64\hwmgmt.inf
+
+
+    dfsfrsui.inf, amd64\dfsfrsui.inf	
+    dfsrhelper.inf, amd64\dfsrhelper.inf
+    dfsext.inf, amd64\dfsext.inf
+
+
+
+
+
+
+
+
+
+
+
+    fsrcommon.inf, amd64\fsrcommon.inf
+
+    fsrnas.inf, amd64\fsrnas.inf			
+
+
+
+
+    adservoc.inf, amd64\adservoc.inf
+
+
+    sis.inf, amd64\sis.inf		
+
+
+
+[CysExt.Files]
+
+    cyswss.dll, amd64\cyswss.dll		
+
+
+    printrole.dll, amd64\printrole.dll
+    puiapi.dll, amd64\puiapi.dll
+
+
+
+    fsrrole.dll, amd64\fsrrole.dll
+    fsrres.dll, amd64\fsrres.dll
+
+
+
+[Help.Files]
+
+    r2setup.chm, amd64\r2setup.chm
+    adam.chm, amd64\adam.chm
+    ADFS.chm, amd64\ADFS.chm
+    branchqs.chm, amd64\branchqs.chm
+    fsrm.chm, amd64\fsrm.chm
+    dfs2.chm, amd64\dfs2.chm
+    nfs_.chm, amd64\nfs_.chm
+    NisServ.chm, amd64\NisServ.chm
+    PasSync.chm, amd64\PasSync.chm
+    pmc.chm, amd64\pmc.chm
+    UIM_.chm, amd64\UIM_.chm
+    fsm.chm, amd64\fsm.chm
+    sanmgr.chm, amd64\sanmgr.chm
+    sua.chm, amd64\sua.chm
+
+
+[MiscBins.Files]
+
+    r2icons.dll, amd64\r2icons.dll
+    
+
+    r2repair.exe, amd64\r2repair.exe
+
+
+    nasr2setup.cmd, amd64\nasr2setup.cmd		
+
+
+
+[Common.AddReg]
+
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%,"SystemComponent",0x00010001,0x1
+
+
+[WSS.AddReg]						
+HKCR,"AppID\{9BF695F8-59E0-4678-AD03-F6430DA365FB}",,0x00000000,"cyswss"
+HKCR,"AppID\cyswss.DLL","AppID",0x00000000,"{9BF695F8-59E0-4678-AD03-F6430DA365FB}"
+HKCR,"CYSWSS.ExtendCYSWizard.1",,0x00000000,"ExtendCYSWizard Class"
+HKCR,"CYSWSS.ExtendCYSWizard.1\CLSID",,0x00000000,"{F6CDFADB-2CD7-4167-94F3-C111FDA1A13D}"
+HKCR,"CYSWSS.ExtendCYSWizard",,0x00000000,"ExtendCYSWizard Class"
+HKCR,"CYSWSS.ExtendCYSWizard\CLSID",,0x00000000,"{F6CDFADB-2CD7-4167-94F3-C111FDA1A13D}"
+HKCR,"CYSWSS.ExtendCYSWizard\CurVer",,0x00000000,"CYSWSS.ExtendCYSWizard.1"
+HKCR,"CLSID\{F6CDFADB-2CD7-4167-94F3-C111FDA1A13D}",,0x00000000,"ExtendCYSWizard Class"
+HKCR,"CLSID\{F6CDFADB-2CD7-4167-94F3-C111FDA1A13D}\ProgID",,0x00000000,"CYSWSS.ExtendCYSWizard.1"
+HKCR,"CLSID\{F6CDFADB-2CD7-4167-94F3-C111FDA1A13D}\VersionIndependentProgID",,0x00000000,"CYSWSS.ExtendCYSWizard"
+HKCR,"CLSID\{F6CDFADB-2CD7-4167-94F3-C111FDA1A13D}\Programmable",,0x00000000,""
+HKCR,"CLSID\{F6CDFADB-2CD7-4167-94F3-C111FDA1A13D}\InprocServer32",,0x00020000,"%SystemRoot%\system32\cyswss.dll"
+HKCR,"CLSID\{F6CDFADB-2CD7-4167-94F3-C111FDA1A13D}\InprocServer32","ThreadingModel",0x00000000,"Apartment"
+HKCR,"CLSID\{F6CDFADB-2CD7-4167-94F3-C111FDA1A13D}","AppID",0x00000000,"{9BF695F8-59E0-4678-AD03-F6430DA365FB}"
+HKCR,"CLSID\{F6CDFADB-2CD7-4167-94F3-C111FDA1A13D}\TypeLib",,0x00000000,"{F6CDFADB-2CD7-4167-94F3-C111FDA1A13D}"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\srvWiz\extensions\CYSWSS","CLSID_UIProvider",0x00000000,"{F6CDFADB-2CD7-4167-94F3-C111FDA1A13D}"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\srvWiz\extensions\CYSWSS","Ordinal",0x00010001,0x96
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\srvWiz\extensions\CYSWSS","ServerRole",0x00010001,0x1e
+
+
+
+[PrintSvr.AddReg]
+HKCR,"PrintRole.1",,0x00000000,"PrintRole Class"
+HKCR," PrintRole.1\CLSID",,0x00000000,"{08EE7794-D2D9-48f6-A304-64BD88F70B14}"
+HKCR,"PrintRole",,0x00000000,"PrintRole Class"
+HKCR," PrintRole\CLSID",,0x00000000,"{08EE7794-D2D9-48f6-A304-64BD88F70B14}"
+HKCR,"CLSID\{08EE7794-D2D9-48f6-A304-64BD88F70B14}",,0x00000000,"PrintRole Class"
+HKCR,"CLSID\{08EE7794-D2D9-48f6-A304-64BD88F70B14}\ProgID",,0x00000000,"PrintRole.1"
+HKCR,"CLSID\{08EE7794-D2D9-48f6-A304-64BD88F70B14}\VersionIndependentProgID",,0x00000000,"PrintRole"
+HKCR,"CLSID\{08EE7794-D2D9-48f6-A304-64BD88F70B14}\InprocServer32",,0x00020000,"%SystemRoot%\system32\printrole.dll"
+HKCR,"CLSID\{08EE7794-D2D9-48f6-A304-64BD88F70B14}\InprocServer32","ThreadingModel",0x00000000,"Apartment"
+HKCR,"CLSID\{08EE7794-D2D9-48f6-A304-64BD88F70B14}\TypeLib",,0x00000000,"{08EE7794-D2D9-48f6-A304-64BD88F70B14}"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\srvWiz\extensions\PrintRole","CLSID_UIProvider",0x00000000,"{08EE7794-D2D9-48f6-A304-64BD88F70B14}"
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\srvWiz\extensions\PrintRole","Ordinal",0x00010001,0xC8
+HKLM,"SOFTWARE\Microsoft\Windows NT\CurrentVersion\srvWiz\extensions\PrintROle","ServerRole",0x00010001,0x1F
+
+
+
+[FileSvr.AddReg]
+HKCR,FileServerRole.CysWizard,,,"File Server Role CYS Extension"
+HKCR,FileServerRole.CysWizard\CLSID,,,"{F1C329DC-8864-482C-B085-ED6080564BDC}"
+HKCR,FileServerRole.CysWizard\CurVer,,,"FileServerRole.CysWizard.1"
+HKCR,FileServerRole.CysWizard.1,,,"File Server Role CYS Extension"
+HKCR,FileServerRole.CysWizard.1\CLSID,,,"{F1C329DC-8864-482C-B085-ED6080564BDC}"
+HKCR,CLSID\{F1C329DC-8864-482C-B085-ED6080564BDC},,,"File Server Role CYS Extension"
+HKCR,CLSID\{F1C329DC-8864-482C-B085-ED6080564BDC}\InprocServer32,,,%11%"\fsrrole.dll"
+HKCR,CLSID\{F1C329DC-8864-482C-B085-ED6080564BDC}\InprocServer32,ThreadingModel,,"Apartment"
+HKCR,CLSID\{F1C329DC-8864-482C-B085-ED6080564BDC}\ProgID,,,"FileServerRole.CysWizard.1"
+HKCR,CLSID\{F1C329DC-8864-482C-B085-ED6080564BDC}\Programmable,,,""
+HKCR,CLSID\{F1C329DC-8864-482C-B085-ED6080564BDC}\TypeLib,,,"{F1C329DC-8864-482C-B085-ED6080564BDC}"
+HKCR,CLSID\{F1C329DC-8864-482C-B085-ED6080564BDC}\VersionIndependentProgID,,,"FileServerRole.CysWizard"
+HKLM,SOFTWARE\Microsoft\Windows NT\CurrentVersion\srvWiz\extensions\FSRole,CLSID_UIProvider,,"{F1C329DC-8864-482C-B085-ED6080564BDC}"
+HKLM,SOFTWARE\Microsoft\Windows NT\CurrentVersion\srvWiz\extensions\FSRole,Ordinal,0x00010001,0x64
+HKLM,SOFTWARE\Microsoft\Windows NT\CurrentVersion\srvWiz\extensions\FSRole,ServerRole,0x00010001,0x20
+
+
+
+
+
+
+
+[NAS.AddReg]						
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,"NASR2Setup",,"%11%\nasr2setup.cmd"
+
+
+[ArchiveCatalogFilesOnly]
+
+SP_SHORT_TITLE%.cat
+
+
+
+[SourceDisksNames]
+    1=%ServicePackSourceFiles%  
+
+
+[SourceDisksFiles]
+
+    amd64\ocwss.inf=1				
+    amd64\ocwss.dll=1				
+
+
+    amd64\PMCSnap.inf=1
+
+
+    amd64\netfx20.inf=1
+    amd64\netfxocm20.dll=1
+
+
+
+    amd64\srm.inf=1				
+
+
+
+    amd64\cfscommonuifx.inf=1
+
+
+    amd64\sanmgmt.inf=1				
+
+
+
+    amd64\msnfs.inf=1
+    amd64\mapsvc.inf=1
+    amd64\nfsadminui.inf=1
+    amd64\nfsauth.inf=1
+    amd64\nfsclnt.inf=1
+    amd64\nfssvc.inf=1
+    amd64\portmap.inf=1
+    amd64\rpcxdr.inf=1
+    amd64\nfsocm.dll=1
+
+
+    amd64\clfs.inf=1
+
+
+    amd64\uidmsnis.inf=1
+    amd64\uidmpsnc.inf=1
+    amd64\uidmadmn.inf=1
+    amd64\uidmmain.inf=1
+    amd64\suaidmog.dll=1
+
+
+    amd64\Interix.inf=1
+
+
+    amd64\dfsr.inf=1				
+
+
+    amd64\hwmgmt.inf=1
+    amd64\wsocgen.dll=1
+
+
+    amd64\dfsfrsui.inf=1				
+    amd64\dfsrhelper.inf=1
+    amd64\dfsext.inf=1
+
+
+
+
+
+
+    amd64\cyswss.dll=1				
+
+
+    amd64\printrole.dll=1
+    amd64\puiapi.dll=1
+
+
+    amd64\fsrrole.dll=1
+    amd64\fsrres.dll=1
+
+
+
+
+
+
+    amd64\fsrcommon.inf=1
+
+    amd64\fsrnas.inf=1				
+
+
+    amd64\adservoc.inf=1
+
+
+    amd64\sis.inf=1				
+
+
+    amd64\r2icons.dll=1
+
+
+    amd64\r2repair.exe=1
+
+
+    amd64\nasr2setup.cmd=1			
+
+
+
+    amd64\r2setup.chm=1
+    amd64\adam.chm=1
+    amd64\ADFS.chm=1
+    amd64\branchqs.chm=1
+    amd64\fsrm.chm=1    
+    amd64\dfs2.chm=1
+    amd64\nfs_.chm=1
+    amd64\NisServ.chm=1
+    amd64\PasSync.chm=1
+    amd64\pmc.chm=1
+    amd64\UIM_.chm=1
+    amd64\fsm.chm=1
+    amd64\sanmgr.chm=1
+    amd64\sua.chm=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[Configuration]
+    InstallationType = Hotfix
+    InstallLogFileName = %SP_SHORT_TITLE%.log
+    UnInstallLogFileName = %SP_SHORT_TITLE%Uninst.log
+    UnInstallDirName = $NtUninstall%SP_SHORT_TITLE%$
+    EventLogKeyName = NtServicePack
+    EventLogDllName = spmsg.dll 
+    CustomizationDll=r2custom.dll
+    NoPNPFiles              = 1	
+    UseCache=1
+
+
+[Strings]
+    SP_TITLE="NAS Standard R2 Setup New files"				
+    SP_SHORT_TITLE="NAS-std-New-files"					
+    SERVICEPACKSOURCEFILES="NAS Standard R2 setup new files"		
+    SERVICE_PACK_NUMBER=2              
+    Product_name="Windows Storage Server 2003 R2 (Standard Edition)"	
+    LANGTYPEVALUE=0x09                 

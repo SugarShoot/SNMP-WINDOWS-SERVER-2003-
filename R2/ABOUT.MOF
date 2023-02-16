@@ -1,0 +1,27 @@
+#pragma namespace("\\\\.\\Root\\SFUAdmin")
+#pragma autorecover
+
+qualifier dynamic:ToInstance;
+qualifier ProviderClsid:ToInstance;
+qualifier ClassContext:ToInstance;
+qualifier propertycontext:ToInstance;
+
+[
+dynamic,
+Provider("RegProv"),
+ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Identity Management for UNIX")
+] 
+class GlobalSettings_Reg {
+  [key]  STRING KeyName;
+  [read, write,propertycontext("MappingServers")]					STRING	MappingServers[];
+  [read, write,propertycontext("Dummy")]							UInt32 Dummy;
+
+  //value maps could be used here
+};
+
+instance of GlobalSettings_Reg
+{
+KeyName = "Global";
+Dummy = 0;
+};
+

@@ -1,0 +1,47 @@
+[Version]
+Signature = "$Windows NT$"
+DriverVer=10/01/2002,5.2.3790.2075
+
+[Optional Components]
+CfsCommonUIFx
+
+[CfsCommonUIFx]
+CopyFiles = CfsCommonUIFx.Files, CfsCommonUIFx.ResFiles, CfsCommonUIFx.Wow64.Files, CfsCommonUIFx.Wow64.ResFiles
+Uninstall = CfsCommonUIFx.Uninstall
+SizeApproximation = 360000
+
+[CfsCommonUIFx.Uninstall]
+DelFiles = CfsCommonUIFx.Files, CfsCommonUIFx.ResFiles, CfsCommonUIFx.Wow64.Files, CfsCommonUIFx.Wow64.ResFiles
+
+[DestinationDirs]
+CfsCommonUIFx.Files = 11
+CfsCommonUIFx.ResFiles = 11, %LocaleSubDir%
+CfsCommonUIFx.Wow64.Files = 10, "SysWOW64"
+CfsCommonUIFx.Wow64.ResFiles = 10, "SysWOW64\%LocaleSubDir%
+
+[SourceDisksNames]
+1 = %R2CDNAME%, , , \cmpnents\r2
+
+[SourceDisksFiles]
+cfscommonuifx.dll = 1
+cfscommonuifx.resources.dll = 1
+
+
+
+
+
+[CfsCommonUIFx.Files]
+cfscommonuifx.dll
+
+[CfsCommonUIFx.ResFiles]			
+cfscommonuifx.resources.dll
+
+[CfsCommonUIFx.Wow64.Files]
+cfscommonuifx.dll
+
+[CfsCommonUIFx.Wow64.ResFiles]			
+cfscommonuifx.resources.dll
+
+[Strings]
+R2CDNAME = "Windows Server 2003 R2 Disc 2"
+LocaleSubDir = "en"

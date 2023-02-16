@@ -1,0 +1,22 @@
+#pragma namespace("\\\\.\\Root\\SFUAdmin")
+#pragma autorecover
+
+
+instance of __Win32Provider as $P
+{ 
+    Name    = "RegProv" ;
+    ClsId   = "{fe9af5c0-d3b6-11ce-a5b6-00aa00680c3f}" ;
+    ImpersonationLevel = 1;
+    PerUserInitialization = TRUE;	
+    Hostingmodel = "localservicehost";
+};    
+
+instance of __InstanceProviderRegistration
+
+{   
+    Provider = $P;
+    SupportsPut = TRUE ;
+    SupportsGet = TRUE;
+    SupportsDelete = TRUE;
+    SupportsEnumeration = TRUE;
+};

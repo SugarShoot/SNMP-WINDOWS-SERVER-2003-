@@ -1,0 +1,25 @@
+#pragma namespace("\\\\.\\Root\\SFUAdmin")
+#pragma autorecover
+
+qualifier dynamic:ToInstance;
+qualifier ProviderClsid:ToInstance;
+qualifier ClassContext:ToInstance;
+qualifier propertycontext:ToInstance;
+
+[
+dynamic,
+Provider("RegProv"),
+ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Server For NIS")
+] 
+class NisServer_Reg{
+  [key]  STRING KeyName;
+  [read, write,propertycontext("Defaults")]					UInt32 ReadConfig;
+  [read, write,propertycontext("Default")]				STRING Default;
+  //value maps could be used here
+};
+
+instance of NisServer_Reg
+{
+KeyName = "ReadConfig";
+Default = "";
+};

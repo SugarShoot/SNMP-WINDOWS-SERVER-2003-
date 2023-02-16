@@ -1,0 +1,165 @@
+//
+//  dsctrnm.h
+//
+//  Offset definition file for exensible counter objects and counters
+//
+//  These "relative" offsets must start at 0 and be multiples of 2 (i.e.
+//  even numbers). In the Open Procedure, they will be added to the
+//  "First Counter" and "First Help" values fo the device they belong to,
+//  in order to determine the  absolute location of the counter and
+//  object names and corresponding help text in the registry.
+//
+//  this file is used by the extensible counter DLL code as well as the
+//  counter name and help text definition file (.INI) file that is used
+//  by LODCTR to load the names into the registry.
+//
+
+#ifndef DSCTRNM_INCLUDE
+#define DSCTRNM_INCLUDE
+
+#define DSOBJ			0
+
+#define NFSBYTES_READ		2
+#define NFSREAD_RATE		4
+
+#define NFSBYTES_WRITTEN	6
+#define NFSWRITE_RATE		8
+
+#define NFS_ANONYMOUS		10
+
+#define V2TOTAL			12
+#define V3TOTAL			14
+
+#define V2ERROR			16
+#define V3ERROR			18
+
+#define MNT1TOTAL		20
+#define MNT3TOTAL		22
+#define MNT1ERROR		24
+#define MNT3ERROR		26
+
+#define V2NULL			28
+#define V2GETATTR		30
+#define V2SETATTR		32
+#define V2ROOT			34
+#define V2LOOKUP		36
+#define V2READLINK		38
+#define V2READ			40
+#define V2WRITECACHE		42
+#define V2WRITE			44
+#define V2CREATE		46
+#define V2REMOVE		48
+#define V2RENAME		50
+#define V2LINK			52
+#define V2SYMLINK		54
+#define V2MKDIR			56
+#define V2RMDIR			58
+#define V2READDIR		60
+#define V2STATFS		62
+
+#define V3NULL			64
+#define V3GETATTR		66
+#define V3SETATTR		68
+#define V3LOOKUP		70
+#define V3ACCESS		72
+#define V3READLINK		74
+#define V3READ			76
+#define V3WRITE			78
+#define V3CREATE		80
+#define V3MKDIR			82
+#define V3SYMLINK		84
+#define V3MKNOD			86
+#define V3REMOVE		88
+#define V3RMDIR			90
+#define V3RENAME		92
+#define V3LINK			94
+#define V3READDIR		96
+#define V3READDIRPLUS		98
+#define V3FSSTAT		100
+#define V3FSINFO		102
+#define V3PATHCONF		104
+#define V3COMMIT		106
+
+#define MNT1NULL		108
+#define MNT1MOUNT		110
+#define MNT1DUMP		112
+#define MNT1UMNT		114
+#define MNT1UMNTALL		116
+#define MNT1EXPORT		118
+
+#define MNT3NULL		120
+#define MNT3MOUNT		122
+#define MNT3DUMP		124
+#define MNT3UMNT		126
+#define MNT3UMNTALL		128
+#define MNT3EXPORT		130
+
+#define RPC_NET_CALLS		132
+#define RPC_CALL_RATE		134
+#define RPC_NET_REPLIES		136
+#define RPC_REPLY_RATE		138
+#define RPC_NET_UNKNOWN		140
+#define RPC_NET_RPC_ERRORS	142
+#define RPC_NET_XDR_ERRORS	144
+#define RPC_CALLS_CREATED	146
+#define RPC_REPLIES_CREATED	148
+#define RPC_THREADS		150
+#define RPC_THREADS_WAITING	152
+#define RPC_DRC_LOST		154
+#define RPC_DRC_PENDING		156
+#define RPC_DRC_HITS		158
+#define RPC_DRC_SENT		160
+#define RPC_DRC_SEND_ERRORS	162
+#define RPC_DRC_REPLY_PRESENT	164
+#define RPC_WORK_QUEUE_SIZE	166
+#ifdef COLLECT_DIAGNOSTIC_DATA
+#define   NFSLOOKUP_FHC_CACHEHIT 168
+#define   NFSLOOKUP_FHC_CACHEMISS 170
+#define   NFSLOOKUP_DIRIDANDRELATIVENAME_CACHEHIT 172
+#define   NFSLOOKUP_DIRIDANDRELATIVENAME_CACHEMISS 174
+#define   NFSLOOKUP_DIRIDANDRELATIVENAME_NONAMECHANGE_HIT 176
+#define   NFSLOOKUP_DIRIDANDRELATIVENAME_NONAMECHANGE_MISS 178
+#define   NFSLOOKUP_DIRID_CACHEHIT 180
+#define   NFSLOOKUP_DIRID_CACHEMISS 182
+#define   NFSLOOKUP_FHCDIRID_CACHEHIT 184
+#define   NFSLOOKUP_FHCDIRID_CACHEMISS 186
+#define   NFSGETATTR_PARENT_FHCDIRID_CACHEHIT 188
+#define   NFSGETATTR_PARENT_FHCDIRID_CACHEMISS 190
+#define   NFSREAD_PARENT_FHCDIRID_CACHEHIT 192
+#define   NFSREAD_PARENT_FHCDIRID_CACHEMISS 194
+#define   NFSWRITE_PARENT_FHCDIRID_CACHEHIT 196
+#define   NFSWRITE_PARENT_FHCDIRID_CACHEMISS 198
+#define   ADDFHCACHEENTRYPARENTANDSELF_FHCDIRID_CACHEHIT 200
+#define   ADDFHCACHEENTRYPARENTANDSELF_FHCDIRID_CACHEMISS 202
+#define   NFSLOOKUP_NONEXISTINGFILE_CACHEHIT 204
+#define   NFSLOOKUP_NONEXISTINGFILE_CACHEMISS 206
+#define   NFSGETATTR_FHC_CACHEHIT 208
+#define   NFSGETATTR_FHC_CACHEMISS 210
+#define   NFSSETATTR_FHC_CACHEHIT 212
+#define   NFSSETATTR_FHC_CACHEMISS 214
+#define   NFSREAD_FHC_CACHEHIT 216
+#define   NFSREAD_FHC_CACHEMISS 218
+#define   NFSWRITE_FHC_CACHEHIT 220
+#define   NFSWRITE_FHC_CACHEMISS 222
+#define   NFSREADLINK_CACHEHIT 224
+#define   NFSREADLINK_CACHEMISS 226
+#define   NFSCREATE_DIRID_CACHEHIT 228
+#define   NFSCREATE_DIRID_CACHEMISS 230
+#define   NFSCREATE_FHCDIRID_CACHEHIT 232
+#define   NFSCREATE_FHCDIRID_CACHEMISS 234
+#define   NFSREMOVE_DIRID_CACHEHIT 236
+#define   NFSREMOVE_DIRID_CACHEMISS 238
+#define   NFSREMOVE_FHCDIRID_CACHEHIT 240
+#define   NFSREMOVE_FHCDIRID_CACHEMISS 242
+#define   NFSSYMLINK_DIRID_CACHEHIT 244
+#define   NFSSYMLINK_DIRID_CACHEMISS 246
+#define   NFSMKDIR_DIRID_CACHEHIT 248
+#define   NFSMKDIR_DIRID_CACHEMISS 250
+#define   NFSRMDIR_DIRID_CACHEHIT 252
+#define   NFSRMDIR_DIRID_CACHEMISS 254
+#define   NFS3ACCESS_FHC_CACHEHIT 256
+#define   NFS3ACCESS_FHC_CACHEMISS 258
+#define   NFS3MKNOD_FHC_CACHEHIT 260
+#define   NFS3MKNOD_FHC_CACHEMISS 262
+#endif
+#endif // DSCTRNM_INCLUDE

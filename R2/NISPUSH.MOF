@@ -1,0 +1,27 @@
+#pragma namespace("\\\\.\\Root\\SFUAdmin")
+#pragma autorecover
+
+qualifier dynamic:ToInstance;
+qualifier ProviderClsid:ToInstance;
+qualifier ClassContext:ToInstance;
+qualifier propertycontext:ToInstance;
+
+[
+dynamic,
+Provider("RegProv"),
+ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft")
+] 
+class NisServer_Push{
+  [key]  STRING KeyName;
+  [read, write,propertycontext("PushInterval")]					UInt32 PushInt;
+  [read, write,propertycontext("PushNow")]					UInt32 PushNow;
+  [read, write,propertycontext("LoggingLevel")]					UInt32 LoggingLevel;
+  [read, write,propertycontext("Default")]					STRING Default;
+  //value maps could be used here
+};
+
+instance of NisServer_Push
+{
+KeyName = "Server For Nis";
+Default = "";
+};

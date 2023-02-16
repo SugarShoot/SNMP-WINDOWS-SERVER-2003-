@@ -1,0 +1,9 @@
+
+
+#pragma namespace("\\\\.\\Root")
+#pragma autorecover
+
+instance of __Namespace
+ {
+    Name = "SFUAdmin";
+}; 

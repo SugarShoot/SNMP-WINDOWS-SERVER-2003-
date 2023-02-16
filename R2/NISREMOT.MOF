@@ -1,0 +1,26 @@
+#pragma namespace("\\\\.\\Root\\SFUAdmin")
+#pragma autorecover
+
+qualifier dynamic:ToInstance;
+qualifier ProviderClsid:ToInstance;
+qualifier ClassContext:ToInstance;
+qualifier propertycontext:ToInstance;
+
+[
+dynamic,
+Provider("RegProv"),
+ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Identity Management for UNIX\\AppsInstalled")
+] 
+class SFU_Domain{
+  [key]  STRING KeyName;
+  [read, write,propertycontext("NisDomain")]					String	Domain;
+  [read, write,propertycontext("NisDC")]					String	DC;
+  [read, write,propertycontext("NisMaps")]					String	Maps[];
+  [read, write,propertycontext("Default")]					STRING Default;
+};
+
+instance of SFU_Domain
+{
+KeyName = "Common Files";
+Default = "";
+};

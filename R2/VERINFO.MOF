@@ -1,0 +1,21 @@
+#pragma namespace("\\\\.\\Root\\SFUAdmin")
+#pragma autorecover
+
+qualifier dynamic:ToInstance;
+qualifier ProviderClsid:ToInstance;
+qualifier ClassContext:ToInstance;
+qualifier propertycontext:ToInstance;
+
+[
+dynamic,
+Provider("RegProv"),
+ClassContext("local|HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft")
+] 
+class version_info
+{
+  [key]  STRING KeyName;
+  [read, write,propertycontext("Version")]			String Version;
+  [read, write,propertycontext("PID")]			String pid;
+  [read, write,propertycontext("Current_Release")]	String curRel;
+
+};

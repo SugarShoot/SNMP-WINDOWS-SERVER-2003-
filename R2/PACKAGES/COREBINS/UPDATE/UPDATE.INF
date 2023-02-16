@@ -1,0 +1,122 @@
+[Version]
+
+    Signature = "$Windows NT$"
+    LanguageType = %LangTypeValue%
+    NtBuildToUpdate = 3790
+    NtMajorVersionToUpdate = 5
+    NtMinorVersionToUpdate = 2
+    MaxNtBuildToUpdate = 3790
+    MaxNtMajorVersionToUpdate = 5
+    MaxNtMinorVersionToUpdate = 2
+    MinNtServicePackVersion=256     
+    MaxNtServicePackVersion=2560     
+    ThisServicePackVersion =0       
+    CatalogFile = %SP_SHORT_TITLE%.cat
+MachineType=64
+    CheckNonPEFileVersion = 1
+DriverVer=10/01/2002,5.2.3790.2075
+    
+[NonPEFiles.Inclusions]
+ amd64\sysoc.inf
+ amd64\scw.inf
+
+
+[ProductCatalogsToInstall]
+
+    %SP_SHORT_TITLE%.cat, update\%SP_SHORT_TITLE%.cat
+
+
+[ProductInstall.ReplaceFilesIfExist]
+
+    CopyFiles=System32.Files
+    CopyFiles=Inf.files
+    CopyFiles=Help.Files
+    CopyFiles=Wallpaper.Files
+    CopyFiles=SCWKb.Files
+
+[ProductInstall.GlobalRegistryChanges.Install]
+    AddReg=Common.AddReg
+
+[ProductInstall.GlobalRegistryChanges.ReInstall]
+    AddReg=Common.AddReg
+
+[DestinationDirs]
+
+    System32.Files=11      
+    Inf.files=17           
+    Help.Files=18          
+    Wallpaper.Files= 10,\Web\Wallpaper       
+    SCWKb.Files=10,\security\msscw\kbs       
+
+
+
+[System32.Files]
+
+    cys.exe, amd64\cys.exe
+    mys.dll, amd64\mys.dll
+    schema.ini, amd64\schema.ini
+    ntds.dit, amd64\ntds.dit
+
+
+[Inf.files]
+    sysoc.inf, amd64\sysoc.inf
+    scw.inf, amd64\scw.inf
+
+[SCWKb.Files]
+    kbreg.xml, amd64\kbreg.xml
+
+[Help.Files]
+      cys.chm, amd64\cys.chm
+      mmcconcepts.chm, amd64\mmccon.chm
+Gstart.chm, amd64\gstartS.chm   
+
+
+[Wallpaper.Files]
+    "Windows Server 2003.bmp", amd64\r2_wallpaper.bmp
+
+
+
+
+[Common.AddReg]
+
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\%SP_SHORT_TITLE%,"SystemComponent",0x00010001,0x1
+
+[ArchiveCatalogFilesOnly]
+    %SP_SHORT_TITLE%.cat
+
+
+
+[SourceDisksNames]
+    1=%ServicePackSourceFiles%  
+
+[SourceDisksFiles]
+    amd64\mys.dll=1
+    amd64\cys.exe=1
+    amd64\schema.ini=1
+    amd64\ntds.dit=1
+    amd64\sysoc.inf=1
+    amd64\scw.inf=1
+    amd64\kbreg.xml=1
+    amd64\r2_wallpaper.bmp=1
+    amd64\cys.chm=1
+    amd64\mmccon.chm=1
+ amd64\gstartS.chm=1   
+
+
+[Configuration]
+    InstallationType = Hotfix
+    InstallLogFileName = %SP_SHORT_TITLE%.log
+    UnInstallLogFileName = %SP_SHORT_TITLE%Uninst.log
+    UnInstallDirName = $NtUninstall%SP_SHORT_TITLE%$
+    EventLogKeyName = NtServicePack
+    EventLogDllName = spmsg.dll 
+    CustomizationDll=r2custom.dll
+    UseCache=1
+
+[Strings]
+    SP_TITLE="R2 Setup In-band files"
+    SP_SHORT_TITLE="R2-In-band"
+    SERVICEPACKSOURCEFILES="R2 setup in-band source files"
+    SERVICE_PACK_NUMBER=2              
+    Product_name="Windows Server 2003 R2"
+    LANGTYPEVALUE=0x09                 

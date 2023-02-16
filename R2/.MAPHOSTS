@@ -1,0 +1,48 @@
+# ============================================================================
+# .maphosts -
+# ============================================================================
+
+
+# This file is used to control whether other computers can access User Name 
+# Mapping. By adding elements (each on a separate line), you can grant or deny
+# any computer access to User Name Mapping. If this file is empty, then no 
+# computer, except the computer running User Name Mapping itself can access 
+# User Name Mapping. If this file is removed then no computer (including the 
+# computer running User Name Mapping) will be able to access User Name 
+# Mapping. When matching a computer making a request against the elements in 
+# the list, User Name Mapping searches from the top down until it finds a 
+# match. Consequently, order is essential.
+
+ 
+# Element Description
+# ------- --------------------------------------------------------------
+# <host>   Specifies one or more computers that can access User Name 
+#          Mapping. The host can be specified as an Internet Protocol 
+#          (IP) address (IP version 4), or as a host name that resolves 
+#          to one or more IP addresses.
+#
+# <host> - Specifies one or more computers that are denied access to 
+#          User Name Mapping. The host can be specified as an IP 
+#          address (IP version 4), or as a host name that resolves to 
+#          one or more IP addresses. Note that there must be at least 
+#          one blank space between <host> and the dash (-).
+#
+# +        When used alone, specifies that all computers can access User 
+#          Name Mapping unless disallowed by an earlier entry in the list. 
+#          All entries in the list following this element are ignored.
+#
+# -        When used alone, specifies that all computers are disallowed 
+#          access to User Name Mapping unless allowed by an earlier entry in 
+#          the list. All entries in the list following this element are 
+#          ignored.
+
+ 
+# The # character can be used to add comments to the file; everything on a
+# line following the # character is ignored.
+
+ 
+# For additional details, search for "Controlling access to User Name Mapping" 
+# in Microsoft Services for Network File System Help. 
+ 
+# Place the list of allowed and disallowed computers here:
+
